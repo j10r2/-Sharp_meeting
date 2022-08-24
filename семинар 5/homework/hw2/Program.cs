@@ -19,15 +19,15 @@ void PrintArray(int[] arr)
 }
 
 
-Console.WriteLine("юзер, тебе выпала честь выбрать длину массива");
+Console.WriteLine("юзер, тебе выпала честь выбрать длину массива"); //не подведи. Хотя о чём я...
 int count = 0;
 int length;
 while (true)
 {
-    try
+    try // ввод с проверкой пользователя на жадность (-_-)
     {
         length = int.Parse(Console.ReadLine());
-        if (length > 20)
+        if (length > 20)    
         {
             length = 20;
             Console.WriteLine("Жадное... 20 тебе хватит.");
@@ -37,7 +37,7 @@ while (true)
         Console.WriteLine();
         break;
     }
-    catch (System.Exception)
+    catch (System.Exception) //обработка исключений для не очень талантливых пользователей
     {
         switch (count)
         {

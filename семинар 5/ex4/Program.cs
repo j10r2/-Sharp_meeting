@@ -16,7 +16,7 @@ void PrintArray(int[] arr)
     }
 }
 
-int[] array = new int[8];
+int[] array = new int[9];
 FillArray(array);
 
 Console.WriteLine();
@@ -24,21 +24,20 @@ Console.WriteLine("исходный массив:");
 PrintArray(array);
 Console.WriteLine();
 
-int length1;
-    if (array.Length % 2 == 0)
+
+int[] SumArray(int[] arr)
+{
+    int length1;
+    if (arr.Length % 2 == 0)
     {
-        length1 = array.Length / 2;
+        length1 = arr.Length / 2;
     }
     else
     {
-        length1 = array.Length / 2 + 1;
+        length1 = arr.Length / 2 + 1;
     }
-int [] array1 = new int [length1];
-
-void SumArray(int[] arr, int [] arr1)
-{
+    int[] arr1 = new int[length1];
     int length = arr.Length;
-    int length1 = arr1.Length;
     for (int i = 0; i < length1; i++)
     {
         if (i == length - (i + 1))
@@ -50,9 +49,8 @@ void SumArray(int[] arr, int [] arr1)
             arr1[i] = arr[i] * arr[length - (i + 1)];
         }
     }
+    return arr1;
 }
 
-Console.WriteLine();
-SumArray(array, array1);
-Console.WriteLine("массив результатов:");
-PrintArray(array1);
+int [] arr1 = SumArray(array);
+PrintArray(arr1);
