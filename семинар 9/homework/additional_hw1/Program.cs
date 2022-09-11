@@ -25,7 +25,7 @@ void PrintDictionaryArray(int[,] arr)
 {
     for (int j = 0; j < arr.GetLength(1); j++)
     {
-        if ((arr[0, j] != 0) && (arr[1, j] != 0)) Console.WriteLine($"{arr[0, j]} встречается в массиве {arr[1, j]} раз(-а)");
+        if (arr[1, j] != 0) Console.WriteLine($"{arr[0, j]} встречается в массиве {arr[1, j]} раз(-а)");
     }
 }
 void Print2DArray(int[,] arr)
@@ -49,7 +49,7 @@ int[,] FrequencyDictionary(int[,] arr)
         {
             for (int finder = 0; finder < (arr.GetLength(0) * arr.GetLength(1)); finder++)
             {
-                if (frequencyDictionary[0, finder] == arr[i, j])
+                if (arr[i, j]  == frequencyDictionary[0, finder])
                 {
                     frequencyDictionary[1, finder]++;
                     break;
@@ -86,12 +86,13 @@ void SortRowsToMax(int[,] arr)
     }
 }
 
-int[,] array = new int[3, 4];
+int[,] array = new int[new Random().Next(3, 5), new Random().Next(4, 8)];
 Fill2DArray(array);
+Console.WriteLine();
 Print2DArray(array);
 Console.WriteLine();
 
 int[,] dictionary = FrequencyDictionary(array);
-
 SortRowsToMax(dictionary);
 PrintDictionaryArray(dictionary);
+Console.WriteLine();
